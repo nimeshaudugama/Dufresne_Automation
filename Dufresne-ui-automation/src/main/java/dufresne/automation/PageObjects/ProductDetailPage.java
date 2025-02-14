@@ -21,21 +21,20 @@ public class ProductDetailPage {
 	}
 
 	@FindBy(xpath = "//button[@data-cy='pdp__add-to-cart-main']")
-	WebElement addToCart;
+	WebElement addToCartButton;
 
 	public ViewCartDetailsPage addToCart() {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", addToCart);
+		js.executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", addToCartButton);
 
-		wait.until(ExpectedConditions.elementToBeClickable(addToCart));
+		wait.until(ExpectedConditions.elementToBeClickable(addToCartButton));
 
-		js.executeScript("arguments[0].click();", addToCart);
+		js.executeScript("arguments[0].click();", addToCartButton);
 
-		ViewCartDetailsPage viewdetailpage = new ViewCartDetailsPage(driver);
-		return viewdetailpage;
+		return new ViewCartDetailsPage(driver);
 
 	}
 

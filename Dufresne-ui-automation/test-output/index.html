@@ -103,7 +103,7 @@
                     <div class="method-list-content passed suite-TestSuite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-TestSuite" title="dufresne.automation.Tests.MakeOrder" class="method navigator-link" hash-for-method="makeOrder({firstname=Isuru, address=123, Glen Ivy, city=Manitoba, phone=2262379268, email=isurujayakodu123@gma...)">makeOrder({firstname=Isuru, address=123, Glen Ivy, city=Manitoba, phone=2262379268, email=isurujayakodu123@gma...)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-TestSuite" title="dufresne.automation.Tests.MakeOrder" class="method navigator-link" hash-for-method="makeOrder({address=123, Glen Ivy, city=Manitoba, last_name=Jayakody, phone_number=2262379268, product_name=Sof...)">makeOrder({address=123, Glen Ivy, city=Manitoba, last_name=Jayakody, phone_number=2262379268, product_name=Sof...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-TestSuite -->
@@ -126,10 +126,10 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="makeOrder({firstname=Isuru, address=123, Glen Ivy, city=Manitoba, phone=2262379268, email=isurujayakodu123@gma...)">
-                  </a> <!-- makeOrder({firstname=Isuru, address=123, Glen Ivy, city=Manitoba, phone=2262379268, email=isurujayakodu123@gma...) -->
+                  <a name="makeOrder({address=123, Glen Ivy, city=Manitoba, last_name=Jayakody, phone_number=2262379268, product_name=Sof...)">
+                  </a> <!-- makeOrder({address=123, Glen Ivy, city=Manitoba, last_name=Jayakody, phone_number=2262379268, product_name=Sof...) -->
                   <span class="method-name">makeOrder</span>
-                  <span class="parameters">({firstname=Isuru, address=123, Glen Ivy, city=Manitoba, phone=2262379268, email=isurujayakodu123@gmail.com, lastname=Jayakody})</span>
+                  <span class="parameters">({address=123, Glen Ivy, city=Manitoba, last_name=Jayakody, phone_number=2262379268, product_name=Sofa, first_name=Isuru, email=isurujayakodu123@gmail.com})</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -144,6 +144,9 @@
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;TestSuite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;dufresne.automation.TestComponents.Listeners&quot;/&gt;
+  &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;dufresne.automation.Tests.MakeOrder&quot;/&gt;
@@ -190,12 +193,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'makeOrder')
 data.setCell(0, 2, 'dufresne.automation.Tests.MakeOrder')
-data.setCell(0, 3, 18684);
+data.setCell(0, 3, 14888);
 window.suiteTableData['TestSuite']= { tableData: data, tableDiv: 'times-div-TestSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 18 seconds</span>
+              <span class="suite-total-time">Total running time: 14 seconds</span>
               <div id="times-div-TestSuite">
               </div> <!-- times-div-TestSuite -->
             </div> <!-- times-div -->
@@ -227,12 +230,12 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">makeOrder({firstname=Isuru, address=123, Glen Ivy, city=Manitoba, phone=2262379268, email=isurujayakodu123@gma...)</span>
-                <span class="method-start">9550 ms</span>
+                <span class="method-name">makeOrder({address=123, Glen Ivy, city=Manitoba, last_name=Jayakody, phone_number=2262379268, product_name=Sof...)</span>
+                <span class="method-start">7528 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">28248 ms</span>
+                <span class="method-start">22454 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

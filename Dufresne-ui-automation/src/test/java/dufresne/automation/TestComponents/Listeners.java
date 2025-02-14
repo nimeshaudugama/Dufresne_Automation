@@ -17,7 +17,7 @@ import dufresne.automation.Resources.ExtentReporter;
 public class Listeners extends BaseTest implements ITestListener{
 	ExtentTest test;
 	ExtentReports extent = ExtentReporter.getReportObject();
-	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>(); 
+	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
 	@Override
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
@@ -56,6 +56,7 @@ public class Listeners extends BaseTest implements ITestListener{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//Screenshot, Attach to report
 		extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
 		
 		

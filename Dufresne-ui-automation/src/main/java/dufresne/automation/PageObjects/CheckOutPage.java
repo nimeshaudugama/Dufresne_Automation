@@ -15,36 +15,29 @@ public class CheckOutPage {
 	WebDriver driver;
 
 	public CheckOutPage(WebDriver driver) {
-		this.driver=driver;
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
-		
+
 	}
-	
-	@FindBy(xpath="//button[@id='Checkout_With_CC_Paypal']")
-	WebElement btncheckout;
-	
-	
-	public ShippingInfo checkout() {
-		
-		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-	        wait.until(ExpectedConditions.elementToBeClickable(btncheckout));
 
-	        try {
-	            btncheckout.click(); // Try standard Selenium click first
-	        } catch (Exception e) {
-	            // Fallback: Use JavaScript click if standard click fails
-	            JavascriptExecutor js = (JavascriptExecutor) driver;
-	            js.executeScript("arguments[0].click();", btncheckout);
-	        }
-		
-		//btncheckout.click();
-		
-//		WebElement checkoutButton = driver.findElement(By.id("Checkout_With_CC_Paypal"));
-//		((JavascriptExecutor) driver).executeScript("arguments[0].click();", checkoutButton);
+	@FindBy(xpath = "//button[@id='Checkout_With_CC_Paypal']")
+	WebElement checkoutButton;
 
-		ShippingInfo shippinginginfo = new ShippingInfo(driver);
-		return shippinginginfo;
-		
+	public ShippingInfo proceedToCheckout() {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(checkoutButton));
+
+		try {
+			checkoutButton.click();
+		} catch (Exception e) {
+			// JavaScript click in case of above click failures
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click();", checkoutButton);
+		}
+
+		return new ShippingInfo(driver);
+
 	}
 
 }

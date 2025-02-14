@@ -14,29 +14,26 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LandingPage {
-	
+
 	WebDriver driver;
-	private String selectedProductName; 
-	
+	private String selectedProductName;
+
 	public LandingPage(WebDriver driver) {
-		this.driver=driver;		
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	
-	@FindBy(xpath="(//input[@class='autosuggest__input--open'])[1]")
+
+	@FindBy(xpath = "(//input[@class='autosuggest__input--open'])[1]")
 	WebElement searchTab;
-	
-//	@FindBy(xpath="//div[contains(@class,'products-list__item')]")
-//	private List<WebElement> products;
-	
-	
-	public void goTo() {
+
+	By productTitleLocator = By.xpath("//a[contains(@class, 'product-title-card')]");
+
+	public void goToHomePage() {
 		driver.get("https://dufresne.ca/");
 	}
-	
+
 	public ProductDetailPage searchProduct(String productName) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));  // Increased wait time for dialog box to appear
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
 		// Wait for the search box to be clickable
 		wait.until(ExpectedConditions.elementToBeClickable(searchTab));
@@ -46,59 +43,42 @@ public class LandingPage {
 		searchTab.sendKeys(productName);
 
 		searchTab.sendKeys(Keys.ENTER);
-		
+
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//a[contains(@class, 'product-title-card')])[1]")));
 
+		wait.until(ExpectedConditions.visibilityOfElementLocated(productTitleLocator));
 
-		 
-		
-		 wait.until(ExpectedConditions.visibilityOfElementLocated(
-				    By.xpath("//a[contains(@class, 'product-title-card')]")
-				));
-		
-		List<WebElement> allProducts = driver.findElements(By.xpath("//a[contains(@class, 'product-title-card')]"));
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("(//a[contains(@class, 'product-title-card')])[1]")));
 
-	
-		for (WebElement product : allProducts) {
-		    System.out.println(product.getText());
-		}
+		List<WebElement> allProducts = driver.findElements(productTitleLocator);
+
+		//
+		// for (WebElement product : allProducts) {
+		// System.out.println(product.getText());
+		// }
 
 		// Click on the first product in the list
 		if (!allProducts.isEmpty()) {
 			selectedProductName = allProducts.get(0).getText();
-			allProducts.get(0).click();  // Click on the first product
-			
+			allProducts.get(0).click();
+
 		} else {
-		    System.out.println("No products found.");
-		  
-		}
-		
-		ProductDetailPage productdetailpage = new ProductDetailPage(driver);
-		return productdetailpage;
+			System.out.println("No products found.");
 
-	
-		  
-
-		    }
-	
-	 public String getSelectedProductName() {
-		  System.out.println("Selected Product: " + selectedProductName);
-	        return selectedProductName; // Return the stored product name
-	    }
-	
-	
 		}
 
-		
-		
-		
-	
+		return new ProductDetailPage(driver);
 
+	}
 
+	public String getSelectedProductName() {
+		return selectedProductName;
+	}
+
+}

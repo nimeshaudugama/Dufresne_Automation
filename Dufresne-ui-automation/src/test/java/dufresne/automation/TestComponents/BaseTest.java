@@ -23,7 +23,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseTest {
 
 	public WebDriver driver;
-	public LandingPage landingpage;
+	public LandingPage landingPage;
 
 	public WebDriver initializeDriver() throws IOException {
 
@@ -35,7 +35,7 @@ public class BaseTest {
 		String browserName = System.getProperty("browser") != null ? System.getProperty("browser")
 				: prop.getProperty("browser");
 
-		if (browserName.contains("chrome")) {
+		if (browserName.equalsIgnoreCase("chrome")) {
 			ChromeOptions options = new ChromeOptions();
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver(options);
@@ -64,17 +64,20 @@ public class BaseTest {
 		return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png";
 
 	}
+	
+	
+
 
 	@BeforeMethod(alwaysRun = true)
 	public void navigateToSite() throws IOException {
 		driver = initializeDriver();
-		landingpage = new LandingPage(driver);
-		landingpage.goTo();
+		landingPage = new LandingPage(driver);
+		landingPage.goToHomePage();
 	}
 
 	@AfterMethod(alwaysRun = true)
 	public void tearDown() {
-		driver.close();
+		driver.quit();
 	}
 
 }
