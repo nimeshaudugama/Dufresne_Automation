@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-14T03:04:18 EST" name="TestSuite" finished-at="2025-02-14T03:04:42 EST" duration-ms="23551">
+  <suite started-at="2025-02-18T09:15:49 CST" name="TestSuite" finished-at="2025-02-18T09:16:17 CST" duration-ms="27310">
     <groups>
     </groups>
-    <test started-at="2025-02-14T03:04:18 EST" name="Test" finished-at="2025-02-14T03:04:42 EST" duration-ms="23551">
+    <test started-at="2025-02-18T09:15:49 CST" name="Test" finished-at="2025-02-18T09:16:17 CST" duration-ms="27310">
       <class name="dufresne.automation.Tests.MakeOrder">
-        <test-method is-config="true" signature="navigateToSite()[pri:0, instance:dufresne.automation.Tests.MakeOrder@466276d8]" started-at="2025-02-14T03:04:19 EST" name="navigateToSite" finished-at="2025-02-14T03:04:26 EST" duration-ms="7521" status="PASS">
+        <test-method is-config="true" signature="navigateToSite()[pri:0, instance:dufresne.automation.Tests.MakeOrder@466276d8]" started-at="2025-02-18T09:15:49 CST" name="navigateToSite" finished-at="2025-02-18T09:15:59 CST" duration-ms="9445" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateToSite -->
-        <test-method signature="makeOrder(java.util.HashMap)[pri:0, instance:dufresne.automation.Tests.MakeOrder@466276d8]" started-at="2025-02-14T03:04:26 EST" name="makeOrder" data-provider="getData" finished-at="2025-02-14T03:04:41 EST" duration-ms="14888" status="PASS">
+        <test-method signature="makeOrder(java.util.HashMap)[pri:0, instance:dufresne.automation.Tests.MakeOrder@466276d8]" started-at="2025-02-18T09:15:59 CST" name="makeOrder" data-provider="getData" finished-at="2025-02-18T09:16:16 CST" duration-ms="16677" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,7 +22,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- makeOrder -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:dufresne.automation.Tests.MakeOrder@466276d8]" started-at="2025-02-14T03:04:41 EST" name="tearDown" finished-at="2025-02-14T03:04:42 EST" duration-ms="817" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:dufresne.automation.Tests.MakeOrder@466276d8]" started-at="2025-02-18T09:16:16 CST" name="tearDown" finished-at="2025-02-18T09:16:17 CST" duration-ms="870" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
